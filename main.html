@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Dancing+Script&family=Libre+Baskerville:wght@400;700&family=Oswald&family=Roboto+Slab:wght@300&family=Space+Grotesk&display=swap" rel="stylesheet">
+    
+    <title>Valentine? Me? You? Us?</title>
+
+    <style>
+        body {
+            background-color: gold;
+            margin: 0; 
+        }
+
+        .top-left, .buttom-left, .right-middle {
+            --position: absolute;
+        }
+
+        .top-left img, .buttom-left img, .right-middle img {
+            object-fit: cover;
+        }
+
+        .top-left {
+            margin-top: 75px;
+            margin-left: 50px;
+            margin-right: 25px;
+            height: 250px;
+            width: 200px;
+            left: -250px;
+            top: -50px;
+        }
+
+        .buttom-left {
+            height: 250px;
+            width: 250px;
+            left: 1350px;
+            top: 350px;
+        }
+
+        .right-middle {
+            height: 300px;
+            width: 300px;
+            left: 500px;
+            top: 600px;
+        }
+
+        .banner {
+            margin-left: -25px;
+            position: absolute;
+            top: 25%;
+            left: 37%;
+            background-color: #000000;
+            color: gold; 
+            font-family: 'Dancing Script', cursive; 
+            padding: 10px;
+            font-size: 3.25rem;
+            border-radius: 15px;
+        }
+
+        .heart-container {
+            display: inline-block;
+        }
+
+        .heart {
+            width: 100px;
+            height: 90px;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation: none;
+            transform: scale(1);
+            transition: all 0.5s ease-in-out;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .buttonYes, .buttonNo {
+            position: absolute;
+            background-color: rgb(235, 235, 170);
+            padding: 20px 40px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.5rem;
+        }
+
+        .buttonYes {
+            top: 50%;
+            left: 42%;
+        }
+
+        .buttonNo {
+            top: 50%;
+            left: 53%;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-left">
+        <img src="umbreon1.png" alt="">
+    </div>
+    <!-- <div class="buttom-left">
+        <img src="bbulbasuars.jpg" alt="">
+    </div>
+    <div class="right-middle">
+        <img src="bbulbasuars.jpg" alt="">
+    </div> -->
+
+    <div class="banner">
+        <span id="banner">Will you be my valentine?</span>
+    </div>
+
+    <div class="button-container">
+        <button class="buttonYes">Yes</button>
+        <button class="buttonNo">No</button>
+    </div>
+
+    <script>
+        const yesButton = document.querySelector('.buttonYes');
+        const noButton = document.querySelector('.buttonNo');
+    
+        yesButton.addEventListener('click', () => {
+            moveYesButton();
+        });
+    
+        function moveYesButton() {
+            document.getElementById('banner').innerHTML = "No backsies! Wish You Were Here!";
+            yesButton.style.display = 'none';
+            noButton.style.display = 'none';
+    
+            const loveFriends = document.createElement('img');
+            loveFriends.src = 'umbreonandespeon2.gif';
+            loveFriends.style.position = 'absolute';
+            loveFriends.style.top = '50%';
+            loveFriends.style.left = '50%';
+            loveFriends.style.transform = 'translate(-50%, -20%)';
+            document.body.appendChild(loveFriends);
+        }
+    
+        noButton.addEventListener('click', () => {
+            moveNoButton();
+        });
+    
+        let counter = 0;
+    
+        const promptArray = [
+            'Will you be my valentine? Please?',
+            'You sure? WHY NOT?',
+            'You\'re breaking my heart! 🥺',
+            'I\'m sad now 😔',
+            'Just SAY YES! 😭 OR IM GONNA CRY',
+        ];
+    
+        function moveNoButton() {
+            const newLeft = Math.floor(Math.random() * 500);
+            const newTop = Math.floor(Math.random() * 500);
+    
+            noButton.style.left = `${newLeft}px`;
+            noButton.style.top = `${newTop}px`;
+    
+            if (counter === 5) {
+                noButton.style.display = 'none';
+            } else {
+                const randomIndex = Math.floor(Math.random() * promptArray.length);
+                document.getElementById('banner').innerHTML = promptArray[counter];
+            }
+            counter += 1;
+        }
+    </script>
+    
+</body>
+</html>
