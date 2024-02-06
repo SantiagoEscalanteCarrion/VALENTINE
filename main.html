@@ -130,7 +130,7 @@
         });
     
         function moveYesButton() {
-            document.getElementById('banner').innerHTML = "No backsies! Wish You Were Here!";
+            document.getElementById('banner').innerHTML = "Yay! You\'ve made me the happiest person! 💛";
             yesButton.style.display = 'none';
             noButton.style.display = 'none';
     
@@ -150,9 +150,10 @@
         let counter = 0;
     
         const promptArray = [
-            'Will you be my valentine? Please?',
-            'You sure? WHY NOT?',
-            'You\'re breaking my heart! 🥺',
+            'Please?',
+            'Did you mean Yes?🥺',
+            'Really? :(',
+            'Why not?',
             'I\'m sad now 😔',
             'Just SAY YES! 😭 OR IM GONNA CRY',
         ];
@@ -164,7 +165,7 @@
             noButton.style.left = `${newLeft}px`;
             noButton.style.top = `${newTop}px`;
     
-            if (counter === 5) {
+            if (counter === 6) {
                 noButton.style.display = 'none';
             } else {
                 const randomIndex = Math.floor(Math.random() * promptArray.length);
